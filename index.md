@@ -2,7 +2,7 @@
 
 ## About me
 
-I'm **Yuhang Bai**, a PhD Candidate at NWPU. My research interests include graph theory and theoretical computer science.
+I'm **Yuhang Bai**, a PhD Candidate at NWPU. My research interests include graph theory and theoretical computer science. I am also interested in random graph theory.
 
 Email: yuhang.bai66@gmail.com
 
