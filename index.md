@@ -2,7 +2,7 @@
 
 ## About me
 
-I'm **Yuhang Bai**, a PhD Candidate at NWPU. My research interests include graph theory and theoretical computer science. I am also interested in random graph theory.
+I'm **Yuhang Bai**, a PhD Candidate at Northwestern Polytechnical University. My research interests include graph theory and theoretical computer science. I am also interested in random graph theory.
 
 Email: yuhang.bai66@gmail.com
 
@@ -33,11 +33,6 @@ Email: yuhang.bai66@gmail.com
 ### Conference
 
 📄 Yuhang Bai, Kristóf Bérczi, Gergely Csáji, Tamás Schwarcz. Approximating maximum-size properly colored forests. In 32nd Annual European Symposium on Algorithms (ESA 2024) 308, 14:1-14:18.
-
-
-
-
-
 
 
 
