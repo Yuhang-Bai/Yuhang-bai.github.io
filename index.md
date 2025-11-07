@@ -20,7 +20,7 @@ Email: yuhang.bai66@gmail.com
 
 📄 Yuhang Bai, Shenggui Zhang. Properly colored thresholds, submitted.
 
-📄 Yuhang Bai, Kristóf Bérczi, Gergely Csáji, Tamás Schwarcz. Approximating maximum-size properly colored forests. European Journal of Combinatorics, 132 (2026) 104269.
+📄 Yuhang Bai, Kristóf Bérczi, Gergely Csáji, Tamás Schwarcz. Approximating maximum-size properly colored forests. European Journal of Combinatorics, 132 (B), 2026, 104269.
 
 📄 Yuhang Bai, Shenggui Zhang, Yandong Bai, Jianhua Tu. The parameterized complexity of properly colored spanning trees problem. submitted.
 
@@ -33,6 +33,7 @@ Email: yuhang.bai66@gmail.com
 ### Conference
 
 📄 Yuhang Bai, Kristóf Bérczi, Gergely Csáji, Tamás Schwarcz. Approximating maximum-size properly colored forests. In 32nd Annual European Symposium on Algorithms (ESA 2024) 308, 14:1-14:18.
+
 
 
 
