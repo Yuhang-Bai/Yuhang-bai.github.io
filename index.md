@@ -1,11 +1,8 @@
 ---
-permalink: /
-title: "About me"
-excerpt: "About me"
+layout: single
 author_profile: true
-redirect_from:
-  - /about/
-  - /about.html
+title: "About me"
+permalink: /
 ---
 
 I am **Yuhang Bai**, a PhD candidate at **Northwestern Polytechnical University (NWPU)**.
