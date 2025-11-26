@@ -1,37 +1,59 @@
-# Welcome to Yuhang's Homepage！
+---
+permalink: /
+title: "About me"
+excerpt: "About me"
+author_profile: true
+redirect_from:
+  - /about/
+  - /about.html
+---
 
-## About me
+I am **Yuhang Bai**, a PhD candidate at **Northwestern Polytechnical University (NWPU)**.
 
-I'm **Yuhang Bai**, a PhD candidate at Northwestern Polytechnical University. My research interests include graph theory and theoretical computer science. I am also interested in random graph theory.
+My research interests lie in **Graph Theory** and **Theoretical Computer Science**, with a specific focus on **Random Graph Theory**.
 
-Email: yuhang.bai66@gmail.com
+---
 
-## List of papers
+## 📝 List of papers
 
 ### Preprint
 
-* Yuhang Bai, Kristóf Bérczi, Johanna K. Siemelink. [Approximating maximum properly colored forests via degree bounded independent sets](https://arxiv.org/abs/2511.18263). arXiv:2511.18263.
+* **Yuhang Bai**, Kristóf Bérczi, Johanna K. Siemelink.
+    <br>[Approximating maximum properly colored forests via degree bounded independent sets](https://arxiv.org/abs/2511.18263).
+    <br>*arXiv preprint arXiv:2511.18263*.
 
-* Xiamiao Zhao, Zixuan Yang, Yichen Wang, Yuhang Bai, Junpeng Zhou. [On Turán-type problems for Berge matchings](https://arxiv.org/abs/2510.05422). arXiv:2510.05422.
+* Xiamiao Zhao, Zixuan Yang, Yichen Wang, **Yuhang Bai**, Junpeng Zhou.
+    <br>[On Turán-type problems for Berge matchings](https://arxiv.org/abs/2510.05422).
+    <br>*arXiv preprint arXiv:2510.05422*.
 
-* Yuhang Bai, Kristóf Bérczi, Gergely Csáji, Tamás Schwarcz. [Approximating maximum-size properly colored forests](https://arxiv.org/abs/2402.00834). arXiv:2402.00834.
-
----
+* **Yuhang Bai**, Kristóf Bérczi, Gergely Csáji, Tamás Schwarcz.
+    <br>[Approximating maximum-size properly colored forests](https://arxiv.org/abs/2402.00834).
+    <br>*arXiv preprint arXiv:2402.00834*.
 
 ### Journal
 
-* Yuhang Bai, Shenggui Zhang. Properly colored thresholds, submitted.
+* **Yuhang Bai**, Shenggui Zhang.
+    <br>Properly colored thresholds.
+    <br>*Submitted*.
 
-* Yuhang Bai, Kristóf Bérczi, Gergely Csáji, Tamás Schwarcz. [Approximating maximum-size properly colored forests](https://www.sciencedirect.com/science/article/pii/S0195669825001581). European Journal of Combinatorics, 132 (2026), 104269.
+* **Yuhang Bai**, Kristóf Bérczi, Gergely Csáji, Tamás Schwarcz.
+    <br>[Approximating maximum-size properly colored forests](https://www.sciencedirect.com/science/article/pii/S0195669825001581).
+    <br>*European Journal of Combinatorics*, 132 (2026), 104269.
 
-* Yuhang Bai, Shenggui Zhang, Yandong Bai, Jianhua Tu. The parameterized complexity of properly colored spanning trees problem. submitted.
+* **Yuhang Bai**, Shenggui Zhang, Yandong Bai, Jianhua Tu.
+    <br>The parameterized complexity of properly colored spanning trees problem.
+    <br>*Submitted*.
 
-* Yuhang Bai, Zhiwei Guo, Shenggui Zhang, Yandong Bai. [Linear amortized time enumeration algorithms for compatible Euler trails in edge-colored graphs](https://link.springer.com/article/10.1007/s10878-023-01005-w). Journal of Combinatorial Optimization 45 (2), 73.
+* **Yuhang Bai**, Zhiwei Guo, Shenggui Zhang, Yandong Bai.
+    <br>[Linear amortized time enumeration algorithms for compatible Euler trails in edge-colored graphs](https://link.springer.com/article/10.1007/s10878-023-01005-w).
+    <br>*Journal of Combinatorial Optimization*, 45 (2), 73.
 
-* Yanni Dong, Hajo Broersma, Yuhang Bai, Shenggui Zhang. [The complexity of spanning tree problems involving graphical indices](https://www.sciencedirect.com/science/article/pii/S0166218X24000167). Discrete Applied Mathematics 347, 143-154.
-
----
+* Yanni Dong, Hajo Broersma, **Yuhang Bai**, Shenggui Zhang.
+    <br>[The complexity of spanning tree problems involving graphical indices](https://www.sciencedirect.com/science/article/pii/S0166218X24000167).
+    <br>*Discrete Applied Mathematics*, 347, 143-154.
 
 ### Conference
 
-* Yuhang Bai, Kristóf Bérczi, Gergely Csáji, Tamás Schwarcz. [Approximating maximum-size properly colored forests](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESA.2024.14). In 32nd Annual European Symposium on Algorithms (ESA 2024) 308, 14:1-14:18.
+* **Yuhang Bai**, Kristóf Bérczi, Gergely Csáji, Tamás Schwarcz.
+    <br>[Approximating maximum-size properly colored forests](https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESA.2024.14).
+    <br>In *32nd Annual European Symposium on Algorithms (ESA 2024)*, 308, 14:1-14:18.
