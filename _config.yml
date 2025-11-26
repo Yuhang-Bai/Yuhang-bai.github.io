@@ -3,9 +3,9 @@
 # -----------------------
 title: "Yuhang Bai"
 description: "PhD Candidate in Graph Theory & TCS"
-url: "https://yourusername.github.io" # 记得改成您的 GitHub 用户名
+url: "https://Yuhang-Bai.github.io" # 记得改成您的 GitHub 用户名
 baseurl: ""
-repository: "yourusername/yourusername.github.io" # 记得修改
+repository: "Yuhang-Bai/Yuhang-Bai.github.io" # 记得修改
 
 # -----------------------
 # 主题设置 (Graph Theory Style)
@@ -53,3 +53,4 @@ defaults:
       comments: false
       share: false
       related: false
+
