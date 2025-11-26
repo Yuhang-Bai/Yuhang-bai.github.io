@@ -8,8 +8,8 @@ author:
   bio: "PhD Candidate at NWPU"
   location: "Xi'an, China"
   email: "yuhang.bai66@gmail.com"
-  googlescholar: " " # 如果有，填入 ID，没有则留空
-  github: "Yuhang-Bai"          # 填入你的 GitHub 用户名
+  googlescholar: "" # 如果有，填入 ID，没有则留空
+  github: "Yuhang-Bai"  # 填入你的 GitHub 用户名
   researchgate: ""
   linkedin: ""
 
@@ -25,3 +25,4 @@ baseurl: "" # 如果是主站，留空
 # Navigation
 # -----------------------
 # 保持 academicpages 默认的导航栏设置即可，或者根据需要精简
+
