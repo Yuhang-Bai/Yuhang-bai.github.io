@@ -1,2 +1,55 @@
-title: " "  # 设置为空字符串（不显示标题）
-description: " "  # 可选：清除描述
+# -----------------------
+# 网站基础设置
+# -----------------------
+title: "Yuhang Bai"
+description: "PhD Candidate in Graph Theory & TCS"
+url: "https://yourusername.github.io" # 记得改成您的 GitHub 用户名
+baseurl: ""
+repository: "yourusername/yourusername.github.io" # 记得修改
+
+# -----------------------
+# 主题设置 (Graph Theory Style)
+# -----------------------
+remote_theme: mmistakes/minimal-mistakes-jekyll
+minimal_mistakes_skin: "air" # 这是一个非常干净、类似论文纸张的配色
+
+# -----------------------
+# 个人侧边栏资料
+# -----------------------
+author:
+  name: "Yuhang Bai"
+  avatar: "/assets/images/profile.jpg" # 请在仓库里放一张您的照片
+  bio: "PhD Candidate @ **NWPU**.<br>Focusing on Graph Theory & TCS."
+  location: "Xi'an, China"
+  email: "yuhang.bai66@gmail.com"
+  links:
+    - label: "Google Scholar"
+      icon: "fas fa-graduation-cap"
+      url: "https://scholar.google.com/..." # 填入您的链接
+    - label: "GitHub"
+      icon: "fab fa-github"
+      url: "https://github.com/..."
+
+# -----------------------
+# 关键：开启数学公式支持 (MathJax)
+# -----------------------
+head_scripts:
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML
+
+# -----------------------
+# 插件设置
+# -----------------------
+plugins:
+  - jekyll-include-cache
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "single"
+      author_profile: true # 显示侧边栏
+      read_time: false     # 学术主页不需要阅读时间
+      comments: false
+      share: false
+      related: false
