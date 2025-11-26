@@ -1,56 +1,27 @@
 # -----------------------
-# 网站基础设置
+# Site Settings
 # -----------------------
 title: "Yuhang Bai"
-description: "PhD Candidate in Graph Theory & TCS"
-url: "https://Yuhang-Bai.github.io" # 记得改成您的 GitHub 用户名
-baseurl: ""
-repository: "Yuhang-Bai/Yuhang-Bai.github.io" # 记得修改
-
-# -----------------------
-# 主题设置 (Graph Theory Style)
-# -----------------------
-remote_theme: mmistakes/minimal-mistakes-jekyll
-minimal_mistakes_skin: "air" # 这是一个非常干净、类似论文纸张的配色
-
-# -----------------------
-# 个人侧边栏资料
-# -----------------------
 author:
   name: "Yuhang Bai"
-  avatar: "/assets/images/profile.jpg" # 请在仓库里放一张您的照片
-  bio: "PhD Candidate @ **NWPU**.<br>Focusing on Graph Theory & TCS."
+  avatar: "/images/profile.png" # 请确保在 files/images 文件夹下有一张名为 profile.png 的照片
+  bio: "PhD Candidate at NWPU"
   location: "Xi'an, China"
   email: "yuhang.bai66@gmail.com"
-  links:
-    - label: "Google Scholar"
-      icon: "fas fa-graduation-cap"
-      url: "https://scholar.google.com/..." # 填入您的链接
-    - label: "GitHub"
-      icon: "fab fa-github"
-      url: "https://github.com/..."
+  googlescholar: " " # 如果有，填入 ID，没有则留空
+  github: "Yuhang-Bai"          # 填入你的 GitHub 用户名
+  researchgate: ""
+  linkedin: ""
 
 # -----------------------
-# 关键：开启数学公式支持 (MathJax)
+# Theme Settings
 # -----------------------
-head_scripts:
-  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML
+minimal_mistakes_skin: "default" # 保持默认，或者选 "air", "sunrise"
+locale: "en-US"
+url: "https://Yuhang-Bai.github.io" # 修改为你的实际网址
+baseurl: "" # 如果是主站，留空
 
 # -----------------------
-# 插件设置
+# Navigation
 # -----------------------
-plugins:
-  - jekyll-include-cache
-
-defaults:
-  - scope:
-      path: ""
-      type: "pages"
-    values:
-      layout: "single"
-      author_profile: true # 显示侧边栏
-      read_time: false     # 学术主页不需要阅读时间
-      comments: false
-      share: false
-      related: false
-
+# 保持 academicpages 默认的导航栏设置即可，或者根据需要精简
