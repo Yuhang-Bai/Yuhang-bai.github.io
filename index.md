@@ -9,10 +9,11 @@ Email: yuhang.bai66@gmail.com
 ## List of papers
 
 ### Preprint
+📄 Yuhang Bai, Kristóf Bérczi, Johanna K. Siemelink. Approximating maximum properly colored forests via degree bounded independent sets. arXiv:2511.18263.
 
-📄 Xiamiao Zhao, Zixuan Yang, Yichen Wang, Yuhang Bai, Junpeng Zhou. On Turán-type problems for Berge matchings. arXiv preprint arXiv:2510.05422.
+📄 Xiamiao Zhao, Zixuan Yang, Yichen Wang, Yuhang Bai, Junpeng Zhou. On Turán-type problems for Berge matchings. arXiv:2510.05422.
 
-📄 Yuhang Bai, Kristóf Bérczi, Gergely Csáji, Tamás Schwarcz. Approximating maximum-size properly colored forests. arXiv preprint arXiv:2402.00834.
+📄 Yuhang Bai, Kristóf Bérczi, Gergely Csáji, Tamás Schwarcz. Approximating maximum-size properly colored forests. arXiv:2402.00834.
 
 ---
 
@@ -33,6 +34,7 @@ Email: yuhang.bai66@gmail.com
 ### Conference
 
 📄 Yuhang Bai, Kristóf Bérczi, Gergely Csáji, Tamás Schwarcz. Approximating maximum-size properly colored forests. In 32nd Annual European Symposium on Algorithms (ESA 2024) 308, 14:1-14:18.
+
 
 
 
