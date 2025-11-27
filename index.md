@@ -11,7 +11,7 @@ My research interests lie in **Graph Theory** and **Theoretical Computer Science
 
 ---
 
-## 📝 List of papers
+## List of papers
 
 ### Preprint
 
@@ -57,4 +57,5 @@ My research interests lie in **Graph Theory** and **Theoretical Computer Science
   
 ## Some useful links:
 [Matroid Union](https://matroidunion.org/)
+
 
