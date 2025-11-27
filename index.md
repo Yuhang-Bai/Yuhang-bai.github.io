@@ -27,7 +27,8 @@ Email: yuhang.bai66@gmail.com
 3. **Yuhang Bai**, Kristóf Bérczi, Gergely Csáji, Tamás Schwarcz. [Approximating maximum-size properly colored forests](https://www.sciencedirect.com/science/article/pii/S0195669825001581). *European Journal of Combinatorics*, 132 (2026), 104269.
 4. **Yuhang Bai**, Shenggui Zhang, Yandong Bai, Jianhua Tu. The parameterized complexity of properly colored spanning trees problem. *Submitted*.
 5. **Yuhang Bai**, Shenggui Zhang. Properly colored thresholds. *Submitted*.
-6. **Yuhang Bai**, Kristóf Bérczi, Johanna K. Siemelink. Approximating maximum properly colored forests via degree bounded independent sets. *Submitted*.
+6. Xiamiao Zhao, Zixuan Yang, Yichen Wang, **Yuhang Bai**, Junpeng Zhou. On Turán-type problems for Berge matchings. *Submitted*.
+7. **Yuhang Bai**, Kristóf Bérczi, Johanna K. Siemelink. Approximating maximum properly colored forests via degree bounded independent sets. *Submitted*.
 
 ### Conference
 
@@ -35,6 +36,7 @@ Email: yuhang.bai66@gmail.com
   
 ## Some useful links:
 [Matroid Union](https://matroidunion.org/)
+
 
 
 
