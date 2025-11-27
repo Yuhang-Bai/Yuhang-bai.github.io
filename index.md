@@ -9,6 +9,7 @@ I am **Yuhang Bai**, a PhD candidate at **Northwestern Polytechnical University 
 
 My research interests lie in **Graph Theory** and **Theoretical Computer Science**, with a specific focus on **Approximation algorithms** and **Random Graph Theory**.
 
+Email: yuhang.bai66@gmail.com
 ---
 
 ## List of papers
@@ -33,6 +34,7 @@ My research interests lie in **Graph Theory** and **Theoretical Computer Science
   
 ## Some useful links:
 [Matroid Union](https://matroidunion.org/)
+
 
 
 
