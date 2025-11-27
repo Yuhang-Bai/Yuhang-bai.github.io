@@ -15,7 +15,7 @@ My research interests lie in **Graph Theory** and **Theoretical Computer Science
 
 ### Preprint
 
-* **Yuhang Bai**, Kristóf Bérczi, Johanna K. Siemelink.<br>[Approximating maximum properly colored forests via degree bounded independent sets](https://arxiv.org/abs/2511.18263).<br>*arXiv preprint arXiv:2511.18263*.
+* **Yuhang Bai**, Kristóf Bérczi, Johanna K. Siemelink.[Approximating maximum properly colored forests via degree bounded independent sets](https://arxiv.org/abs/2511.18263).*arXiv preprint arXiv:2511.18263*.
 
 * Xiamiao Zhao, Zixuan Yang, Yichen Wang, **Yuhang Bai**, Junpeng Zhou.
     <br>[On Turán-type problems for Berge matchings](https://arxiv.org/abs/2510.05422).
@@ -55,6 +55,7 @@ My research interests lie in **Graph Theory** and **Theoretical Computer Science
   
 ## Some useful links:
 [Matroid Union](https://matroidunion.org/)
+
 
 
 
