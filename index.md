@@ -22,10 +22,10 @@ Email: yuhang.bai66@gmail.com
 
 ### Journal
 
-1. Yanni Dong, Hajo Broersma, **Yuhang Bai**, Shenggui Zhang. [The complexity of spanning tree problems involving graphical indices](https://www.sciencedirect.com/science/article/pii/S0166218X24000167). *Discrete Applied Mathematics*, 347, 143-154.
-2. **Yuhang Bai**, Zhiwei Guo, Shenggui Zhang, Yandong Bai. [Linear amortized time enumeration algorithms for compatible Euler trails in edge-colored graphs](https://link.springer.com/article/10.1007/s10878-023-01005-w). *Journal of Combinatorial Optimization*, 45 (2), 73.
-3. **Yuhang Bai**, Kristóf Bérczi, Gergely Csáji, Tamás Schwarcz. [Approximating maximum-size properly colored forests](https://www.sciencedirect.com/science/article/pii/S0195669825001581). *European Journal of Combinatorics*, 132 (2026), 104269.
-4. **Yuhang Bai**, Shenggui Zhang, Yandong Bai, Jianhua Tu. The parameterized complexity of properly colored spanning trees problem. *Submitted*.
+1. **Yuhang Bai**, Zhiwei Guo, Shenggui Zhang, Yandong Bai. [Linear amortized time enumeration algorithms for compatible Euler trails in edge-colored graphs](https://link.springer.com/article/10.1007/s10878-023-01005-w). *Journal of Combinatorial Optimization*, 45 (2), 73.
+2. Yanni Dong, Hajo Broersma, **Yuhang Bai**, Shenggui Zhang. [The complexity of spanning tree problems involving graphical indices](https://www.sciencedirect.com/science/article/pii/S0166218X24000167). *Discrete Applied Mathematics*, 347, 143-154.
+3. **Yuhang Bai**, Shenggui Zhang, Yandong Bai, Jianhua Tu. The parameterized complexity of properly colored spanning trees problem. *Submitted*.
+4. **Yuhang Bai**, Kristóf Bérczi, Gergely Csáji, Tamás Schwarcz. [Approximating maximum-size properly colored forests](https://www.sciencedirect.com/science/article/pii/S0195669825001581). *European Journal of Combinatorics*, 132 (2026), 104269.
 5. **Yuhang Bai**, Shenggui Zhang. Properly colored thresholds. *Submitted*.
 6. Xiamiao Zhao, Zixuan Yang, Yichen Wang, **Yuhang Bai**, Junpeng Zhou. On Turán-type problems for Berge matchings. *Submitted*.
 7. **Yuhang Bai**, Kristóf Bérczi, Johanna K. Siemelink. Approximating maximum properly colored forests via degree bounded independent sets. *Submitted*.
@@ -36,6 +36,7 @@ Email: yuhang.bai66@gmail.com
   
 ## Some useful links:
 [Matroid Union](https://matroidunion.org/)
+
 
 
 
