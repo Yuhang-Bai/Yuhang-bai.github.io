@@ -24,10 +24,10 @@ Email: yuhang.bai66@gmail.com
 
 1. **Yuhang Bai**, Zhiwei Guo, Shenggui Zhang, Yandong Bai. [Linear amortized time enumeration algorithms for compatible Euler trails in edge-colored graphs](https://link.springer.com/article/10.1007/s10878-023-01005-w). *Journal of Combinatorial Optimization*, 45 (2), 73.
 2. Yanni Dong, Hajo Broersma, **Yuhang Bai**, Shenggui Zhang. [The complexity of spanning tree problems involving graphical indices](https://www.sciencedirect.com/science/article/pii/S0166218X24000167). *Discrete Applied Mathematics*, 347, 143-154.
-3. **Yuhang Bai**, Shenggui Zhang, Yandong Bai, Jianhua Tu. The parameterized complexity of properly colored spanning trees problem. *Submitted*.
-###
+3. **Yuhang Bai**, Shenggui Zhang, Yandong Bai, Jianhua Tu. The parameterized complexity of properly colored spanning trees problem. *Submitted*.  
+<\br>
 A weakly properly colored spanning tree $T$ with fixed root $r$ is a spanning tree in which every path in $T$, from $r$ to any leaf, is a properly colored path. We demonstrate that it is NP-      complete to determine whether a planar graph contains a properly colored spanning tree, even for planar graphs with maximum degree four using only two colors. We also investigate the generalized properly colored spanning trees problem, where given a graph that every edge is assigned a set of colors, determine whether the graph contains a properly colored spanning tree, in which no two adjacent edges share a color. Surprisingly, this problem is polynomial-time solvable for trees but NP-hard for partial $2$-trees with each edge assigned at most two colors. Additionally, we prove that it is W[$1$]-hard to decide whether an edge-colored graph contains a weakly properly colored spanning tree when parameterized by the treewidth. On the positive side, we show that these problems are fixed-parameter tractable when parameterized by combining the treewidth and the number of colors.
-
+<\br>
   
 5. **Yuhang Bai**, Kristóf Bérczi, Gergely Csáji, Tamás Schwarcz. [Approximating maximum-size properly colored forests](https://www.sciencedirect.com/science/article/pii/S0195669825001581). *European Journal of Combinatorics*, 132 (2026), 104269.
 6. **Yuhang Bai**, Shenggui Zhang. Properly colored thresholds. *Submitted*.
@@ -43,6 +43,7 @@ A weakly properly colored spanning tree $T$ with fixed root $r$ is a spanning tr
   
 ## Some useful links:
 [Matroid Union](https://matroidunion.org/)
+
 
 
 
