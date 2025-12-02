@@ -1,28 +1,34 @@
 # -----------------------
-# Site Settings
+# 网站基本设置
 # -----------------------
 title: "Yuhang Bai"
+url: "https://Yuhang-Bai.github.io" # 记得改成您的 GitHub 用户名
+minimal_mistakes_skin: "default"      # 主题配色
+
+# -----------------------
+# 关键：作者侧边栏信息
+# -----------------------
 author:
   name: "Yuhang Bai"
-  avatar: "/images/profile.png" # 请确保在 files/images 文件夹下有一张名为 profile.png 的照片
-  bio: "PhD Candidate at NWPU"
+  avatar: "/images/profile.jpg"       # ❗请确保在仓库 images 文件夹下放入您的照片 profile.jpg
+  bio: "PhD Candidate at **NWPU**"
   location: "Xi'an, China"
   email: "yuhang.bai66@gmail.com"
-  googlescholar: "" # 如果有，填入 ID，没有则留空
-  github: "Yuhang-Bai"  # 填入你的 GitHub 用户名
-  researchgate: ""
-  linkedin: ""
+  links:
+    - label: "Google Scholar"
+      icon: "fas fa-graduation-cap"
+      url: "https://scholar.google.com.hk/citations?user=rznH-g4AAAAJ&hl=zh-CN" # 填入链接
 
 # -----------------------
-# Theme Settings
+# 开启数学公式 (MathJax)
 # -----------------------
-minimal_mistakes_skin: "default" # 保持默认，或者选 "air", "sunrise"
-locale: "en-US"
-url: "https://Yuhang-Bai.github.io" # 修改为你的实际网址
-baseurl: "" # 如果是主站，留空
+head_scripts:
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML
 
-# -----------------------
-# Navigation
-# -----------------------
-# 保持 academicpages 默认的导航栏设置即可，或者根据需要精简
-
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "single"
+      author_profile: true
