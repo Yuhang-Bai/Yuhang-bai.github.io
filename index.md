@@ -43,7 +43,7 @@ My research interests lie in **Graph Theory** and **Theoretical Computer Science
     <br>The parameterized complexity of properly colored spanning trees problem.
     <br>*Submitted*.
     <details>
-    <summary>Click to view Abstract</summary>
+    <summary>Abstract</summary>
     <blockquote>
     A weakly properly colored spanning tree $T$ with fixed root $r$ is a spanning tree in which every path in $T$, from $r$ to any leaf, is a properly colored path. We demonstrate that it is NP-complete to determine whether a planar graph contains a properly colored spanning tree, even for planar graphs with maximum degree four using only two colors. We also investigate the generalized properly colored spanning trees problem... (Check full paper for more).
     </blockquote>
@@ -57,7 +57,7 @@ My research interests lie in **Graph Theory** and **Theoretical Computer Science
     <br>Properly colored thresholds.
     <br>*Submitted*.
     <details>
-    <summary>Click to view Abstract</summary>
+    <summary>Abstract</summary>
     <blockquote>
     We extend both the threshold result of Frankston–Kahn–Narayanan–Park and its strengthening by Spiro to properly colored settings. In addition, we establish threshold results for some properly colored structures in randomly colored randomly perturbed graphs.
     </blockquote>
@@ -81,3 +81,4 @@ My research interests lie in **Graph Theory** and **Theoretical Computer Science
 
 ## 🔗 Useful Links
 * [Matroid Union](https://matroidunion.org/)
+
