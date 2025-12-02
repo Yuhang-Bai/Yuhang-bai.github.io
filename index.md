@@ -45,7 +45,7 @@ My research interests lie in **Graph Theory** and **Theoretical Computer Science
     <details>
     <summary>Abstract</summary>
     <blockquote>
-    A weakly properly colored spanning tree $T$ with fixed root $r$ is a spanning tree in which every path in $T$, from $r$ to any leaf, is a properly colored path. We demonstrate that it is NP-complete to determine whether a planar graph contains a properly colored spanning tree, even for planar graphs with maximum degree four using only two colors. We also investigate the generalized properly colored spanning trees problem... (Check full paper for more).
+    A weakly properly colored spanning tree $T$ with fixed root $r$ is a spanning tree in which every path in $T$, from $r$ to any leaf, is a properly colored path. We demonstrate that it is NP-      complete to determine whether a planar graph contains a properly colored spanning tree, even for planar graphs with maximum degree four using only two colors. We also investigate the generalized properly colored spanning trees problem, where given a graph that every edge is assigned a set of colors, determine whether the graph contains a properly colored spanning tree, in which no two adjacent edges share a color. Surprisingly, this problem is polynomial-time solvable for trees but NP-hard for partial $2$-trees with each edge assigned at most two colors. Additionally, we prove that it is W[$1$]-hard to decide whether an edge-colored graph contains a weakly properly colored spanning tree when parameterized by the treewidth. On the positive side, we show that these problems are fixed-parameter tractable when parameterized by combining the treewidth and the number of colors.
     </blockquote>
     </details>
 
@@ -81,4 +81,5 @@ My research interests lie in **Graph Theory** and **Theoretical Computer Science
 
 ## 🔗 Useful Links
 * [Matroid Union](https://matroidunion.org/)
+
 
