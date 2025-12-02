@@ -10,7 +10,7 @@ minimal_mistakes_skin: "default"      # 主题配色
 # -----------------------
 author:
   name: "Yuhang Bai"
-  avatar: "/images/profile.jpg"       # ❗请确保在仓库 images 文件夹下放入您的照片 profile.jpg
+  avatar: "/images/profile.png"       # ❗请确保在仓库 images 文件夹下放入您的照片 profile.jpg
   bio: "PhD Candidate at **NWPU**"
   location: "Xi'an, China"
   email: "yuhang.bai66@gmail.com"
@@ -32,3 +32,4 @@ defaults:
     values:
       layout: "single"
       author_profile: true
+
