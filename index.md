@@ -35,7 +35,7 @@ Email:yuhang.bai66@gmail.com
        </details>
 4. **Yuhang Bai**, Kristóf Bérczi, Gergely Csáji, Tamás Schwarcz. [Approximating maximum-size properly colored forests](https://www.sciencedirect.com/science/article/pii/S0195669825001581). *European Journal of Combinatorics*, 132 (2026), 104269.
 5. **Yuhang Bai**, Shenggui Zhang. Properly colored thresholds. *Submitted*.  
-       <details>
+   <details>
        <summary>Abstract</summary>
        <blockquote>
        We extend both the threshold result of Frankston–Kahn–Narayanan–Park and its strengthening by Spiro to properly colored settings. In addition, we establish threshold results for some properly colored structures in randomly colored randomly perturbed graphs.
@@ -51,4 +51,5 @@ Email:yuhang.bai66@gmail.com
 ## Some useful links:
 
 [Matroid Union](https://matroidunion.org/)
+
 
