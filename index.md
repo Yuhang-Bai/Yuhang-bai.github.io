@@ -21,7 +21,7 @@ Email:yuhang.bai66@gmail.com
 1. **Yuhang Bai**, Kristóf Bérczi, Gergely Csáji, Tamás Schwarcz. [Approximating maximum-size properly colored forests](https://arxiv.org/abs/2402.00834). *arXiv preprint arXiv:2402.00834*.
 2. Xiamiao Zhao, Zixuan Yang, Yichen Wang, **Yuhang Bai**, Junpeng Zhou. [On Turán-type problems for Berge matchings](https://arxiv.org/abs/2510.05422). *arXiv preprint arXiv:2510.05422*.
 3. **Yuhang Bai**, Kristóf Bérczi, Johanna K. Siemelink. [Approximating maximum properly colored forests via degree bounded independent sets](https://arxiv.org/abs/2511.18263). *arXiv preprint arXiv:2511.18263*.
-4. **Yuhang Bai**, Gyula O.H. Katona, Zixuan Yang.[Most probably trangle-free graphs](https://arxiv.org/abs/2602.22782).*arXiv preprint arXiv:2602.22782*.
+4. **Yuhang Bai**, Gyula O.H. Katona, Zixuan Yang. [Most probably trangle-free graphs](https://arxiv.org/abs/2602.22782).*arXiv preprint arXiv:2602.22782*.
 
 ### Journal
 
@@ -52,6 +52,7 @@ Email:yuhang.bai66@gmail.com
 ## Some useful links:
 
 [Matroid Union](https://matroidunion.org/)
+
 
 
 
