@@ -23,10 +23,23 @@ def format_authors(authors_str):
 def determine_category(entry):
     entry_type = entry.get('ENTRYTYPE', '').lower()
     journal = entry.get('journal', '').lower()
-    if 'arxiv' in journal or entry_type == 'unpublished': return 'Preprint'
-    elif entry_type == 'article': return 'Journal'
-    elif entry_type in ['inproceedings', 'conference']: return 'Conference'
+    note = entry.get('note', '').lower()
+    
+    if entry_type == 'unpublished' or 'arxiv' in journal or 'arxiv' in note:
+        return 'Preprint'
+    elif entry_type == 'article':
+        return 'Journal'
+    elif entry_type in ['inproceedings', 'conference']:
+        return 'Conference'
     return 'Preprint'
+
+def get_year(entry):
+    if 'year' in entry:
+        return str(entry['year'])
+    match = re.search(r'\d{4}', entry.get('ID', ''))
+    if match:
+        return match.group(0)
+    return '0'
 
 def generate_markdown(entries):
     categories = {'Preprint': [], 'Journal': [], 'Conference': []}
@@ -34,38 +47,67 @@ def generate_markdown(entries):
         cat = determine_category(entry)
         if cat in categories:
             categories[cat].append(entry)
-    
-    # 按年份降序排序
+
     for cat in categories:
-        categories[cat].sort(key=lambda x: x.get('year', '0'), reverse=True)
+        categories[cat].sort(key=get_year, reverse=True)
 
     md_lines = ["\n## List of papers\n"]
     for cat_name, cat_entries in categories.items():
         if not cat_entries: continue
         md_lines.append(f"### {cat_name}\n")
+        
         for idx, entry in enumerate(cat_entries, 1):
             authors = format_authors(entry.get('author', ''))
             title = entry.get('title', '').replace('{', '').replace('}', '')
             url = entry.get('url', '')
             
-            if cat_name == 'Conference':
-                venue = f"In *{entry.get('booktitle', 'Conference')}*"
-            else:
-                venue = f"*{entry.get('journal', 'Journal')}*"
+            title_md = f"[{title}]({url})" if url else title
+            
+            venue_parts = []
+            if cat_name == 'Conference' and 'booktitle' in entry:
+                venue_parts.append(f"In *{entry.get('booktitle')}*")
+            elif 'journal' in entry:
+                venue_parts.append(f"*{entry.get('journal')}*")
+            elif 'note' in entry and 'arXiv' in entry.get('note', ''):
+                venue_parts.append(f"*{entry.get('note')}*")
                 
-            vol, pages = entry.get('volume', ''), entry.get('pages', '')
-            if vol and pages: venue += f", {vol}, {pages}"
-
-            if url:
-                line = f"{idx}. {authors}. [{title}]({url}). {venue}."
+            vol_info = ""
+            if 'volume' in entry:
+                vol_info += entry.get('volume')
+                if 'number' in entry:
+                    vol_info += f" ({entry.get('number')})"
+            if 'pages' in entry:
+                if vol_info:
+                    vol_info += f", {entry.get('pages')}"
+                else:
+                    vol_info = entry.get('pages')
+                    
+            if vol_info:
+                venue_parts.append(vol_info)
+                
+            venue_str = ", ".join(venue_parts)
+            if entry.get('note', '').lower() == 'submitted':
+                if venue_str:
+                    line = f"{idx}. {authors}. {title_md}. {venue_str}. *Submitted*."
+                else:
+                    line = f"{idx}. {authors}. {title_md}. *Submitted*."
             else:
-                line = f"{idx}. {authors}. {title}. {venue}. *Submitted*."
+                line = f"{idx}. {authors}. {title_md}. {venue_str}."
+                
+            line = line.replace('..', '.')
             md_lines.append(line)
             
             abstract = entry.get('abstract', '')
             if abstract:
-                md_lines.extend(["   <details>", "       <summary>Abstract</summary>", "       <blockquote>", f"       {abstract}", "       </blockquote>", "       </details>"])
-        md_lines.append("\n")
+                md_lines.extend([
+                    "   <details>",
+                    "       <summary>Abstract</summary>",
+                    "       <blockquote>",
+                    f"       {abstract}",
+                    "       </blockquote>",
+                    "       </details>"
+                ])
+                
     return "\n".join(md_lines)
 
 def main():
@@ -73,24 +115,25 @@ def main():
         with open(BIB_FILE, 'r', encoding='utf-8') as f:
             bib_db = bibtexparser.load(f)
     except FileNotFoundError:
-        print(f"File {BIB_FILE} not found.")
+        print(f"Error: {BIB_FILE} not found.")
         return
         
-    new_pubs_md = generate_markdown(bib_db.entries)
+    new_md = generate_markdown(bib_db.entries)
     
-    with open(INDEX_FILE, 'r', encoding='utf-8') as f:
-        content = f.read()
-        
-    # 替换标志位之间的内容
-    pattern = re.compile(r'(<!-- PUBS_START -->).*?(<!-- PUBS_END -->)', re.DOTALL)
-    if pattern.search(content):
-        # 转义反斜杠，确保正确注入
-        new_content = pattern.sub(r'\g<1>\n' + new_pubs_md.replace('\\', '\\\\') + r'\n\g<2>', content)
-        with open(INDEX_FILE, 'w', encoding='utf-8') as f:
-            f.write(new_content)
-        print("Successfully updated index.md")
-    else:
-        print("Markers <!-- PUBS_START --> and <!-- PUBS_END --> not found in index.md")
+    try:
+        with open(INDEX_FILE, 'r', encoding='utf-8') as f:
+            content = f.read()
+            
+        pattern = re.compile(r'(<!-- PUBS_START -->).*?(<!-- PUBS_END -->)', re.DOTALL)
+        if pattern.search(content):
+            new_content = pattern.sub(r'\g<1>\n' + new_md.replace('\\', '\\\\') + r'\n\g<2>', content)
+            with open(INDEX_FILE, 'w', encoding='utf-8') as f:
+                f.write(new_content)
+            print("Successfully updated index.md")
+        else:
+            print("Markers <!-- PUBS_START --> and <!-- PUBS_END --> not found in index.md")
+    except FileNotFoundError:
+        print(f"Error: {INDEX_FILE} not found.")
 
 if __name__ == "__main__":
     main()
