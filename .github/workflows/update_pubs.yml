@@ -25,7 +25,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install bibtexparser
+          pip install bibtexparser==1.4.1
           
       - name: Run generation script
         run: python generate_pubs.py
