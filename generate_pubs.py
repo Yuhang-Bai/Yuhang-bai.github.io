@@ -43,19 +43,29 @@ def get_year(entry):
 
 def generate_markdown(entries):
     categories = {'Preprint': [], 'Journal': [], 'Conference': []}
+    
+    # 记录每篇文献在 bib 文件中的原始顺序
+    for i, entry in enumerate(entries):
+        entry['_original_index'] = i
+        
     for entry in entries:
         cat = determine_category(entry)
         if cat in categories:
             categories[cat].append(entry)
 
+    # 排序逻辑：按状态/年份降序，同年份或同状态下按原始索引升序
     for cat in categories:
         if cat == 'Journal':
             categories[cat].sort(key=lambda x: (
                 1 if x.get('note', '').lower().strip() == 'submitted' else 0,
-                get_year(x)
+                get_year(x),
+                -x['_original_index']
             ), reverse=True)
         else:
-            categories[cat].sort(key=get_year, reverse=True)
+            categories[cat].sort(key=lambda x: (
+                get_year(x),
+                -x['_original_index']
+            ), reverse=True)
 
     md_lines = ["\n## List of papers\n"]
     for cat_name, cat_entries in categories.items():
