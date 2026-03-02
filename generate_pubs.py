@@ -49,7 +49,13 @@ def generate_markdown(entries):
             categories[cat].append(entry)
 
     for cat in categories:
-        categories[cat].sort(key=get_year, reverse=True)
+        if cat == 'Journal':
+            categories[cat].sort(key=lambda x: (
+                1 if x.get('note', '').lower().strip() == 'submitted' else 0,
+                get_year(x)
+            ), reverse=True)
+        else:
+            categories[cat].sort(key=get_year, reverse=True)
 
     md_lines = ["\n## List of papers\n"]
     for cat_name, cat_entries in categories.items():
@@ -86,8 +92,10 @@ def generate_markdown(entries):
                 venue_parts.append(vol_info)
                 
             venue_str = ", ".join(venue_parts)
-            if entry.get('note', '').lower() == 'submitted':
-                if venue_str:
+            is_submitted = entry.get('note', '').lower().strip() == 'submitted'
+            
+            if is_submitted:
+                if venue_str and venue_str.lower() != 'submitted':
                     line = f"{idx}. {authors}. {title_md}. {venue_str}. *Submitted*."
                 else:
                     line = f"{idx}. {authors}. {title_md}. *Submitted*."
@@ -107,6 +115,7 @@ def generate_markdown(entries):
                     "       </blockquote>",
                     "       </details>"
                 ])
+        md_lines.append("\n")
                 
     return "\n".join(md_lines)
 
