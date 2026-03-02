@@ -53,18 +53,18 @@ def generate_markdown(entries):
         if cat in categories:
             categories[cat].append(entry)
 
-    # 排序逻辑：按状态/年份降序，同年份或同状态下按原始索引升序
+    # 排序逻辑：按状态/年份降序，同年份或同状态下按原始索引降序（bib中越靠后的越靠前）
     for cat in categories:
         if cat == 'Journal':
             categories[cat].sort(key=lambda x: (
                 1 if x.get('note', '').lower().strip() == 'submitted' else 0,
                 get_year(x),
-                -x['_original_index']
+                x['_original_index']
             ), reverse=True)
         else:
             categories[cat].sort(key=lambda x: (
                 get_year(x),
-                -x['_original_index']
+                x['_original_index']
             ), reverse=True)
 
     md_lines = ["\n## List of papers\n"]
