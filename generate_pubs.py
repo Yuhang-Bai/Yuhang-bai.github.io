@@ -3,12 +3,12 @@ name: Auto Update Publications
 on:
   push:
     paths:
-      - 'publications.bib'     # 当bib文件更新时触发
-      - 'generate_pubs.py'     # 当脚本更新时触发
-  workflow_dispatch:           # 允许在网页端手动点击运行
+      - 'publications.bib'     
+      - 'generate_pubs.py'     
+  workflow_dispatch:           
 
 permissions:
-  contents: write              # 允许机器人提交代码
+  contents: write              
 
 jobs:
   build:
@@ -35,5 +35,4 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add index.md
-          # 如果文件有变化则提交并推送，否则跳过
           git diff --quiet && git diff --staged --quiet || (git commit -m "docs: auto-update publications list from bibtex" && git push)
