@@ -28,7 +28,7 @@ Email:yuhang.bai66@gmail.com
 
 ### Journal
 
-1. **Yuhang Bai**, Krist\'of B\'erczi, Gergely Cs\'aji, Tam\'as Schwarcz. Approximating maximum-size properly colored forests. *European Journal of Combinatorics*. *Submitted*.
+1. **Yuhang Bai**, Krist\'of B\'erczi, Gergely Cs\'aji, Tam\'as Schwarcz. Approximating maximum-size properly colored forests. *European Journal of Combinatorics*, 132, 104269. *Submitted*.
 2. **Yuhang Bai**, Zhiwei Guo, Shenggui Zhang, Yandong Bai. Linear amortized time enumeration algorithms for compatible Euler trails in edge-colored graphs. *Journal of Combinatorial Optimization*, 45, 73. *Submitted*.
 3. Yanni Dong, Hajo Broersma, **Yuhang Bai**, Shenggui Zhang. The complexity of spanning tree problems involving graphical indices. *Discrete Applied Mathematics*, 347, 143--154. *Submitted*.
 
