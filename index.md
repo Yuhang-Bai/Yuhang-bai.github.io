@@ -1,10 +1,10 @@
 ---
 layout: single
 author_profile: true
-title: "About me"
-
+title: "Yuhang Bai"
 permalink: /
 ---
+# Yuhang Bai
 
 I am **Yuhang Bai**, a PhD candidate at **Northwestern Polytechnical University (NWPU)**.
 
