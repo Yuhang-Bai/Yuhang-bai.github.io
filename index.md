@@ -8,7 +8,7 @@ permalink: /
 
 I am **Yuhang Bai**, a PhD candidate at **Northwestern Polytechnical University (NWPU)**.
 
-My research interests lie in **Graph Theory** and **Theoretical Computer Science**, with a specific focus on **Approximation algorithms** and **Random Graph Theory**.
+I am interested in **Graph Theory** and **Theoretical Computer Science**, particularly **Approximation algorithms** and **Random Graph Theory**.
 
 Email:yuhang.bai66@gmail.com
 
