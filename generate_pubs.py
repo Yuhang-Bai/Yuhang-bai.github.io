@@ -106,11 +106,11 @@ def generate_markdown(entries):
             
             if is_submitted:
                 if venue_str and venue_str.lower() != 'submitted':
-                    line = f"{idx}. {authors}. {title_md}. {venue_str}. *Submitted*."
+                    line = f"[{idx}] {authors}. {title_md}. {venue_str}. *Submitted*."
                 else:
-                    line = f"{idx}. {authors}. {title_md}. *Submitted*."
+                    line = f"[{idx}] {authors}. {title_md}. *Submitted*."
             else:
-                line = f"{idx}. {authors}. {title_md}. {venue_str}."
+                line = f"[{idx}] {authors}. {title_md}. {venue_str}."
                 
             line = line.replace('..', '.')
             md_lines.append(line)
