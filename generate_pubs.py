@@ -72,7 +72,9 @@ def generate_markdown(entries):
         if not cat_entries: continue
         md_lines.append(f"### {cat_name}\n")
         
-        for idx, entry in enumerate(cat_entries, 1):
+        total_entries = len(cat_entries)
+        for i, entry in enumerate(cat_entries):
+            idx = total_entries - i
             authors = format_authors(entry.get('author', ''))
             title = entry.get('title', '').replace('{', '').replace('}', '')
             url = entry.get('url', '')
