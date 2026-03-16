@@ -125,6 +125,9 @@ def generate_markdown(entries):
                     "       </blockquote>",
                     "       </details>"
                 ])
+            
+            md_lines.append("") # 添加空行以确保 Markdown 正确换行为独立段落
+            
         md_lines.append("\n")
                 
     return "\n".join(md_lines)
