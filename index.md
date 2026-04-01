@@ -32,6 +32,8 @@ Email:yuhang.bai66@gmail.com
 
 ### Journal
 
+[9] Xiamiao Zhao, Zixuan Yang, Yichen Wang, **Yuhang Bai**, Junpeng Zhou. On Turán-type problems for Berge matchings. *Submitted*.
+
 [8] **Yuhang Bai**, Gyula O.H. Katona, Zixuan Yang. Most probably trangle-free graphs. *Submitted*.
 
 [7] **Yuhang Bai**, Kristóf Bérczi, Johanna K. Siemelink. Approximating maximum properly colored forests via degree bounded independent sets. *Submitted*.
