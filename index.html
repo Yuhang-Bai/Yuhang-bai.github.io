@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Yuhang Bai</title>
+  <meta name="description" content="Yuhang Bai academic homepage">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=STIX+Two+Text:wght@400;500;600&display=swap" rel="stylesheet">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
+  <style>
+    :root {
+      --ink: #1a1f26;
+      --muted: #5a6673;
+      --accent: #183b63;
+      --accent-soft: #eef3f7;
+      --paper: #fbfbf8;
+      --panel: rgba(255, 255, 255, 0.82);
+      --panel-border: rgba(26, 31, 38, 0.12);
+      --rule: #d7dde4;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      background:
+        linear-gradient(rgba(251, 251, 248, 0.96), rgba(251, 251, 248, 0.96)),
+        repeating-linear-gradient(
+          to right,
+          transparent 0,
+          transparent 95px,
+          rgba(24, 59, 99, 0.035) 95px,
+          rgba(24, 59, 99, 0.035) 96px
+        );
+      color: var(--ink);
+      font-family: "STIX Two Text", Georgia, serif;
+      font-size: 21px;
+      line-height: 1.85;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      width: min(920px, calc(100% - 2rem));
+      margin: 0 auto;
+      padding: 2.2rem 0 3rem;
+    }
+
+    .masthead {
+      padding: 0 0 1.5rem;
+      border-bottom: 1px solid var(--rule);
+    }
+
+    .masthead h1 {
+      margin: 0;
+      font-size: clamp(2.5rem, 5vw, 3.7rem);
+      font-weight: 600;
+      line-height: 1;
+      letter-spacing: -0.02em;
+    }
+
+    .subtitle {
+      margin: 0.55rem 0 0;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 1.2rem;
+      color: var(--muted);
+    }
+
+    .intro {
+      margin: 1rem 0 0;
+      max-width: 42rem;
+      font-size: 1.26rem;
+      color: #29313a;
+    }
+
+    .contact-lines {
+      margin: 1rem 0 0;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 1.12rem;
+      color: var(--muted);
+      line-height: 1.9;
+    }
+
+    .quick-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.85rem 1.2rem;
+      margin-top: 0.9rem;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 1.12rem;
+    }
+
+    .content {
+      margin-top: 1.8rem;
+    }
+
+    .section {
+      margin-top: 1.8rem;
+    }
+
+    .section h2 {
+      margin: 0 0 0.7rem;
+      padding-bottom: 0.45rem;
+      border-bottom: 1px solid var(--rule);
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 1.34rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .section p {
+      margin: 0.55rem 0 0;
+    }
+
+    .pub-group + .pub-group {
+      margin-top: 1.5rem;
+    }
+
+    .pub-group h3 {
+      margin: 0 0 0.75rem;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 1.14rem;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .pub-list {
+      display: grid;
+      gap: 0.1rem;
+    }
+
+    .pub-item {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 0.8rem;
+      align-items: start;
+      padding: 0.48rem 0;
+      border-top: 1px solid rgba(26, 31, 38, 0.08);
+    }
+
+    .pub-index {
+      min-width: 2.5rem;
+      padding-top: 0.1rem;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 1.08rem;
+      color: var(--muted);
+    }
+
+    .pub-main {
+      min-width: 0;
+    }
+
+    .pub-text {
+      margin: 0;
+      color: #20262e;
+      font-size: 1.2rem;
+      line-height: 1.86;
+      word-break: break-word;
+    }
+
+    .pub-title {
+      font-weight: 500;
+    }
+
+    .pub-venue {
+      color: var(--muted);
+      font-style: italic;
+    }
+
+    .pub-status {
+      display: inline-block;
+      padding: 0.02rem 0.42rem;
+      border: 1px solid rgba(23, 58, 97, 0.18);
+      color: var(--accent);
+      background: transparent;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 0.94rem;
+    }
+
+    .pub-abstract {
+      margin: 0.32rem 0 0;
+      padding-left: 0.8rem;
+      border-left: 2px solid rgba(23, 58, 97, 0.15);
+    }
+
+    .pub-abstract summary {
+      cursor: pointer;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 1.08rem;
+      font-weight: 500;
+    }
+
+    .pub-abstract blockquote {
+      margin: 0.65rem 0 0;
+      padding: 0;
+      border: 0;
+      color: var(--muted);
+    }
+
+    .links-list {
+      margin: 0;
+      padding-left: 1.15rem;
+    }
+
+    .links-list li {
+      margin: 0.2rem 0;
+    }
+
+    @media (max-width: 760px) {
+      .page {
+        width: min(100% - 1rem, 920px);
+      }
+
+      .pub-item {
+        grid-template-columns: 1fr;
+        gap: 0.35rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <header class="masthead">
+      <div>
+        <h1>Yuhang Bai</h1>
+        <p class="subtitle">PhD Candidate, Northwestern Polytechnical University</p>
+        <p class="intro">
+          I work in graph theory and theoretical computer science, with interests in
+          approximation algorithms and random graph theory.
+        </p>
+        <div class="contact-lines">
+          Email: <a href="mailto:yuhang.bai66@gmail.com">yuhang.bai66@gmail.com</a>
+        </div>
+        <div class="quick-links">
+          <a href="https://scholar.google.com.hk/citations?user=rznH-g4AAAAJ&hl=zh-CN">Google Scholar</a>
+          <a href="#publications">Publications</a>
+        </div>
+      </div>
+    </header>
+
+    <div class="content">
+      <section class="section">
+        <h2>Research Interests</h2>
+        <p>Graph Theory, Theoretical Computer Science, Approximation Algorithms, Random Graph Theory.</p>
+      </section>
+
+      <section class="section" id="publications">
+        <h2>Publications</h2>
+
+        <!-- PUBS_START -->
+<section class="pub-group">
+  <h3>Preprint</h3>
+  <div class="pub-list">
+    <article class="pub-item">
+      <div class="pub-index">[4]</div>
+      <div class="pub-main">
+        <p class="pub-text"><strong>Yuhang Bai</strong>, Gyula O.H. Katona, Zixuan Yang. <a class="pub-title" href="https://arxiv.org/abs/2602.22782">Most probably trangle-free graphs</a>. <span class="pub-venue">arXiv preprint arXiv:2602.22782</span>.</p>
+      </div>
+    </article>
+    <article class="pub-item">
+      <div class="pub-index">[3]</div>
+      <div class="pub-main">
+        <p class="pub-text"><strong>Yuhang Bai</strong>, Kristóf Bérczi, Johanna K. Siemelink. <a class="pub-title" href="https://arxiv.org/abs/2511.18263">Approximating maximum properly colored forests via degree bounded independent sets</a>. <span class="pub-venue">arXiv preprint arXiv:2511.18263</span>.</p>
+      </div>
+    </article>
+    <article class="pub-item">
+      <div class="pub-index">[2]</div>
+      <div class="pub-main">
+        <p class="pub-text">Yichen Wang, Zixuan Yang, Xiamiao Zhao, <strong>Yuhang Bai</strong>, Junpeng Zhou. <a class="pub-title" href="https://arxiv.org/abs/2510.05422">The Turán number of Berge matchings</a>. <span class="pub-venue">arXiv preprint arXiv:2510.05422</span>.</p>
+      </div>
+    </article>
+    <article class="pub-item">
+      <div class="pub-index">[1]</div>
+      <div class="pub-main">
+        <p class="pub-text"><strong>Yuhang Bai</strong>, Kristóf Bérczi, Gergely Csáji, Tamás Schwarcz. <a class="pub-title" href="https://arxiv.org/abs/2402.00834">Approximating maximum-size properly colored forests</a>. <span class="pub-venue">arXiv preprint arXiv:2402.00834</span>.</p>
+      </div>
+    </article>
+  </div>
+</section>
+<section class="pub-group">
+  <h3>Journal</h3>
+  <div class="pub-list">
+    <article class="pub-item">
+      <div class="pub-index">[9]</div>
+      <div class="pub-main">
+        <p class="pub-text">Xiamiao Zhao, Zixuan Yang, Yichen Wang, <strong>Yuhang Bai</strong>, Junpeng Zhou. <span class="pub-title">On Turán-type problems for Berge matchings</span>. <span class="pub-status">Submitted</span>.</p>
+      </div>
+    </article>
+    <article class="pub-item">
+      <div class="pub-index">[8]</div>
+      <div class="pub-main">
+        <p class="pub-text"><strong>Yuhang Bai</strong>, Gyula O.H. Katona, Zixuan Yang. <span class="pub-title">Most probably trangle-free graphs</span>. <span class="pub-status">Submitted</span>.</p>
+      </div>
+    </article>
+    <article class="pub-item">
+      <div class="pub-index">[7]</div>
+      <div class="pub-main">
+        <p class="pub-text"><strong>Yuhang Bai</strong>, Kristóf Bérczi, Johanna K. Siemelink. <span class="pub-title">Approximating maximum properly colored forests via degree bounded independent sets</span>. <span class="pub-status">Submitted</span>.</p>
+      </div>
+    </article>
+    <article class="pub-item">
+      <div class="pub-index">[6]</div>
+      <div class="pub-main">
+        <p class="pub-text">Yichen Wang, Zixuan Yang, Xiamiao Zhao, <strong>Yuhang Bai</strong>, Junpeng Zhou. <span class="pub-title">The Turán number of Berge matchings</span>. <span class="pub-status">Submitted</span>.</p>
+      </div>
+    </article>
+    <article class="pub-item">
+      <div class="pub-index">[5]</div>
+      <div class="pub-main">
+        <p class="pub-text"><strong>Yuhang Bai</strong>, Shenggui Zhang. <span class="pub-title">Properly colored thresholds</span>. <span class="pub-status">Submitted</span>.</p>
+        <details class="pub-abstract">
+          <summary>Abstract</summary>
+          <blockquote>We extend both the threshold result of Frankston–Kahn–Narayanan–Park and its strengthening by Spiro to properly colored settings. In addition, we establish threshold results for some properly colored structures in randomly colored randomly perturbed graphs.</blockquote>
+        </details>
+      </div>
+    </article>
+    <article class="pub-item">
+      <div class="pub-index">[4]</div>
+      <div class="pub-main">
+        <p class="pub-text"><strong>Yuhang Bai</strong>, Shenggui Zhang, Yandong Bai, Jianhua Tu. <span class="pub-title">The parameterized complexity of properly colored spanning trees problem</span>. <span class="pub-status">Submitted</span>.</p>
+        <details class="pub-abstract">
+          <summary>Abstract</summary>
+          <blockquote>A weakly properly colored spanning tree $T$ with fixed root $r$ is a spanning tree in which every path in $T$, from $r$ to any leaf, is a properly colored path. We demonstrate that it is NP-complete to determine whether a planar graph contains a properly colored spanning tree, even for planar graphs with maximum degree four using only two colors. We also investigate the generalized properly colored spanning trees problem, where given a graph that every edge is assigned a set of colors, determine whether the graph contains a properly colored spanning tree, in which no two adjacent edges share a color. Surprisingly, this problem is polynomial-time solvable for trees but NP-hard for partial $2$-trees with each edge assigned at most two colors. Additionally, we prove that it is W[1]-hard to decide whether an edge-colored graph contains a weakly properly colored spanning tree when parameterized by the treewidth. On the positive side, we show that these problems are fixed-parameter tractable when parameterized by combining the treewidth and the number of colors.</blockquote>
+        </details>
+      </div>
+    </article>
+    <article class="pub-item">
+      <div class="pub-index">[3]</div>
+      <div class="pub-main">
+        <p class="pub-text"><strong>Yuhang Bai</strong>, Kristóf Bérczi, Gergely Csáji, Tamás Schwarcz. <a class="pub-title" href="https://www.sciencedirect.com/science/article/pii/S0195669825001581">Approximating maximum-size properly colored forests</a>. <span class="pub-venue">European Journal of Combinatorics, 132 (2026), 104269</span>.</p>
+      </div>
+    </article>
+    <article class="pub-item">
+      <div class="pub-index">[2]</div>
+      <div class="pub-main">
+        <p class="pub-text">Yanni Dong, Hajo Broersma, <strong>Yuhang Bai</strong>, Shenggui Zhang. <a class="pub-title" href="https://www.sciencedirect.com/science/article/pii/S0166218X24000167">The complexity of spanning tree problems involving graphical indices</a>. <span class="pub-venue">Discrete Applied Mathematics, 347, 143-154</span>.</p>
+      </div>
+    </article>
+    <article class="pub-item">
+      <div class="pub-index">[1]</div>
+      <div class="pub-main">
+        <p class="pub-text"><strong>Yuhang Bai</strong>, Zhiwei Guo, Shenggui Zhang, Yandong Bai. <a class="pub-title" href="https://link.springer.com/article/10.1007/s10878-023-01005-w">Linear amortized time enumeration algorithms for compatible Euler trails in edge-colored graphs</a>. <span class="pub-venue">Journal of Combinatorial Optimization, 45 (2), 73</span>.</p>
+      </div>
+    </article>
+  </div>
+</section>
+<section class="pub-group">
+  <h3>Conference</h3>
+  <div class="pub-list">
+    <article class="pub-item">
+      <div class="pub-index">[1]</div>
+      <div class="pub-main">
+        <p class="pub-text"><strong>Yuhang Bai</strong>, Kristóf Bérczi, Gergely Csáji, Tamás Schwarcz. <a class="pub-title" href="https://drops.dagstuhl.de/entities/document/10.4230/LIPIcs.ESA.2024.14">Approximating maximum-size properly colored forests</a>. <span class="pub-venue">In 32nd Annual European Symposium on Algorithms (ESA 2024), 308, 14:1-14:18</span>.</p>
+      </div>
+    </article>
+  </div>
+</section>
+<!-- PUBS_END -->
+      </section>
+
+      <section class="section">
+        <h2>Links</h2>
+        <ul class="links-list">
+          <li><a href="https://matroidunion.org/">Matroid Union</a></li>
+        </ul>
+      </section>
+    </div>
+  </main>
+</body>
+</html>
+

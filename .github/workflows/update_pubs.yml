@@ -3,8 +3,8 @@ name: Auto Update Publications
 on:
   push:
     paths:
-      - 'publications.bib'     
-      - 'generate_pubs.py'     
+      - 'publications.bib'
+      - 'build_site.py'
   workflow_dispatch:           
 
 permissions:
@@ -21,18 +21,13 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.10'
-          
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install bibtexparser==1.4.1
-          
+
       - name: Run generation script
-        run: python generate_pubs.py
+        run: python build_site.py
         
       - name: Commit and push changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add index.md
+          git add index.html
           git diff --quiet && git diff --staged --quiet || (git commit -m "docs: auto-update publications list from bibtex" && git push)
