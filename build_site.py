@@ -1,9 +1,33 @@
 from html import escape
 import re
+import unicodedata
 
 BIB_FILE = "publications.bib"
 INDEX_FILE = "index.html"
 TARGET_AUTHOR = "Yuhang Bai"
+TITLE_STOPWORDS = {
+    "a",
+    "an",
+    "and",
+    "by",
+    "for",
+    "from",
+    "in",
+    "of",
+    "on",
+    "the",
+    "to",
+    "type",
+    "types",
+    "using",
+    "via",
+    "with",
+    "without",
+    "number",
+    "numbers",
+    "problem",
+    "problems",
+}
 
 
 def split_entries(text):
@@ -128,6 +152,12 @@ def normalize_name(name):
     return normalize_spaces(strip_braces(name)).lower()
 
 
+def fold_text(text):
+    folded = unicodedata.normalize("NFKD", text)
+    folded = "".join(ch for ch in folded if not unicodedata.combining(ch))
+    return folded.casefold()
+
+
 def format_authors(authors_str):
     if not authors_str:
         return ""
@@ -144,6 +174,56 @@ def format_authors(authors_str):
         else:
             formatted.append(escape(author))
     return ", ".join(formatted)
+
+
+def extract_authors(authors_str):
+    if not authors_str:
+        return []
+
+    authors = [a.strip() for a in authors_str.replace("\n", " ").split(" and ") if a.strip()]
+    normalized = []
+    for author in authors:
+        if "," in author:
+            parts = author.split(",", 1)
+            author = f"{parts[1].strip()} {parts[0].strip()}"
+        normalized.append(normalize_spaces(strip_braces(author)))
+    return normalized
+
+
+def surname_sort_key(name):
+    parts = normalize_spaces(strip_braces(name)).split()
+    if not parts:
+        return ("", "")
+    surname = fold_text(parts[-1])
+    given_names = fold_text(" ".join(parts[:-1]))
+    return surname, given_names
+
+
+def normalize_title_token(token):
+    if len(token) > 4 and token.endswith("ies"):
+        return token[:-3] + "y"
+    if len(token) > 3 and token.endswith("s") and not token.endswith("ss"):
+        return token[:-1]
+    return token
+
+
+def title_key(title):
+    cleaned = fold_text(normalize_spaces(strip_braces(title))).replace("-", " ")
+    tokens = []
+    for token in re.findall(r"[a-z0-9]+", cleaned):
+        if token in TITLE_STOPWORDS:
+            continue
+        tokens.append(normalize_title_token(token))
+
+    unique_tokens = sorted(dict.fromkeys(tokens))
+    if unique_tokens:
+        return tuple(unique_tokens)
+    return (cleaned,)
+
+
+def work_key(entry):
+    authors = tuple(sorted(fold_text(author) for author in extract_authors(entry.get("author", ""))))
+    return authors, title_key(entry.get("title", ""))
 
 
 def determine_category(entry):
@@ -289,6 +369,33 @@ def generate_html(entries):
     return "\n".join(lines)
 
 
+def generate_collaborators_html(entries):
+    counts = {}
+    seen_work_keys = set()
+
+    for entry in entries:
+        key = work_key(entry)
+        if key in seen_work_keys:
+            continue
+        seen_work_keys.add(key)
+
+        authors = extract_authors(entry.get("author", ""))
+        for author in authors:
+            if normalize_name(author) == TARGET_AUTHOR.lower():
+                continue
+            counts[author] = counts.get(author, 0) + 1
+
+    if not counts:
+        return '<p class="collab-empty">No coauthors listed yet.</p>'
+
+    items = [
+        f'<span class="collab-entry"><span class="collab-name">{escape(author)}</span> '
+        f'<span class="collab-count">({counts[author]})</span></span>'
+        for author in sorted(counts, key=surname_sort_key)
+    ]
+    return '<p class="collab-list">' + "; ".join(items) + ".</p>"
+
+
 def main():
     try:
         entries = load_bib_entries(BIB_FILE)
@@ -297,19 +404,31 @@ def main():
         return
 
     new_html = generate_html(entries)
+    collaborators_html = generate_collaborators_html(entries)
 
     try:
         with open(INDEX_FILE, "r", encoding="utf-8") as f:
             content = f.read()
 
-        pattern = re.compile(r"(<!-- PUBS_START -->).*?(<!-- PUBS_END -->)", re.DOTALL)
-        if pattern.search(content):
-            new_content = pattern.sub(r"\g<1>\n" + new_html + r"\n\g<2>", content)
-            with open(INDEX_FILE, "w", encoding="utf-8") as f:
-                f.write(new_content)
-            print("Successfully updated index.html")
-        else:
-            print("Markers <!-- PUBS_START --> and <!-- PUBS_END --> not found in index.html")
+        replacements = [
+            ("PUBS", new_html),
+            ("COLLAB", collaborators_html),
+        ]
+
+        new_content = content
+        for marker, fragment in replacements:
+            pattern = re.compile(
+                rf"(<!-- {marker}_START -->).*?(<!-- {marker}_END -->)",
+                re.DOTALL,
+            )
+            if not pattern.search(new_content):
+                print(f"Markers <!-- {marker}_START --> and <!-- {marker}_END --> not found in index.html")
+                return
+            new_content = pattern.sub(r"\g<1>\n" + fragment + r"\n\g<2>", new_content)
+
+        with open(INDEX_FILE, "w", encoding="utf-8") as f:
+            f.write(new_content)
+        print("Successfully updated index.html")
     except FileNotFoundError:
         print(f"Error: {INDEX_FILE} not found.")
 
