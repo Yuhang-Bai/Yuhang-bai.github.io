@@ -291,12 +291,13 @@ def build_publication_html(entry, idx, category):
 
     summary_bits = [bit for bit in [authors, title_html, venue_html, status_html] if bit]
     summary_html = ". ".join(summary_bits).replace("..", ".")
+    terminal = "" if status_html and summary_bits[-1] == status_html else "."
 
     lines = [
         '    <article class="pub-item">',
         f'      <div class="pub-index">[{idx}]</div>',
         '      <div class="pub-main">',
-        f'        <p class="pub-text">{summary_html}.</p>',
+        f'        <p class="pub-text">{summary_html}{terminal}</p>',
     ]
 
     abstract = normalize_spaces(entry.get("abstract", ""))
