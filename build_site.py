@@ -251,12 +251,13 @@ def get_year(entry):
 
 def build_venue(entry, category):
     parts = []
+    note = strip_braces(entry.get("note", ""))
     if category == "Conference" and entry.get("booktitle"):
         parts.append(f"In {strip_braces(entry.get('booktitle', ''))}")
     elif entry.get("journal"):
         parts.append(strip_braces(entry.get("journal", "")))
     elif "arxiv" in entry.get("note", "").lower():
-        parts.append(strip_braces(entry.get("note", "")))
+        parts.append(note)
 
     vol_info = ""
     if entry.get("volume"):
@@ -269,6 +270,9 @@ def build_venue(entry, category):
 
     if vol_info:
         parts.append(vol_info)
+
+    if note and note.lower() not in {"submitted"} and "arxiv" not in note.lower():
+        parts.append(note)
 
     return ", ".join(part for part in parts if part)
 
