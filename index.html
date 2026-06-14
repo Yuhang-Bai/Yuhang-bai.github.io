@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Yuhang Bai | Graph Theory and Theoretical Computer Science</title>
-  <meta name="description" content="Yuhang Bai is a PhD candidate at Northwestern Polytechnical University working in graph theory, theoretical computer science, approximation algorithms, and random graph theory.">
+  <meta name="description" content="Yuhang Bai is a PhD candidate at Northwestern Polytechnical University working in graph theory, theoretical computer science, approximation algorithms, matroid theory, and random graph theory.">
   <meta name="robots" content="index, follow">
   <link rel="canonical" href="https://yuhang-bai.github.io/">
   <meta property="og:type" content="profile">
@@ -14,6 +14,8 @@
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Yuhang Bai">
   <meta name="twitter:description" content="PhD candidate at Northwestern Polytechnical University working in graph theory and theoretical computer science.">
+  <meta name="theme-color" content="#fbfaf6" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#14171c" media="(prefers-color-scheme: dark)">
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -33,9 +35,21 @@
         "Graph theory",
         "Theoretical computer science",
         "Approximation algorithms",
+        "Matroid theory",
         "Random graph theory"
       ]
     }
+  </script>
+  <script>
+    /* Set the saved theme before first paint to avoid a flash. */
+    (function () {
+      try {
+        var t = localStorage.getItem("theme");
+        if (t === "dark" || t === "light") {
+          document.documentElement.setAttribute("data-theme", t);
+        }
+      } catch (e) {}
+    })();
   </script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -43,37 +57,78 @@
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML"></script>
   <style>
     :root {
-      --ink: #1a1f26;
-      --muted: #5a6673;
-      --accent: #183b63;
+      color-scheme: light;
+      --paper: #fbfaf6;
+      --panel: #ffffff;
+      --ink: #1b2128;
+      --ink-soft: #2c343d;
+      --muted: #66707b;
+      --faint: #99a2ad;
+      --accent: #1d4e7e;
       --link: #1f5fbf;
-      --accent-soft: #eef3f7;
-      --paper: #fbfbf8;
-      --panel: rgba(255, 255, 255, 0.82);
-      --panel-border: rgba(26, 31, 38, 0.12);
-      --rule: #d7dde4;
+      --link-hover: #173f88;
+      --rule: #e6e2d8;
+      --rule-soft: rgba(27, 33, 40, 0.08);
+      --hover: rgba(29, 78, 126, 0.045);
+      --badge-bd: rgba(29, 78, 126, 0.28);
+      --badge-bg: rgba(29, 78, 126, 0.06);
     }
 
-    * {
-      box-sizing: border-box;
+    /* System dark mode, unless the visitor explicitly chose light. */
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) {
+        color-scheme: dark;
+        --paper: #14171c;
+        --panel: #1b1f26;
+        --ink: #e7eaef;
+        --ink-soft: #d2d7de;
+        --muted: #99a3af;
+        --faint: #6f7984;
+        --accent: #9cc4f4;
+        --link: #8fb8f0;
+        --link-hover: #b3cef7;
+        --rule: #2a2f38;
+        --rule-soft: rgba(231, 234, 239, 0.10);
+        --hover: rgba(156, 196, 244, 0.07);
+        --badge-bd: rgba(156, 196, 244, 0.32);
+        --badge-bg: rgba(156, 196, 244, 0.08);
+      }
     }
+
+    /* Manual dark mode (toggle button). */
+    :root[data-theme="dark"] {
+      color-scheme: dark;
+      --paper: #14171c;
+      --panel: #1b1f26;
+      --ink: #e7eaef;
+      --ink-soft: #d2d7de;
+      --muted: #99a3af;
+      --faint: #6f7984;
+      --accent: #9cc4f4;
+      --link: #8fb8f0;
+      --link-hover: #b3cef7;
+      --rule: #2a2f38;
+      --rule-soft: rgba(231, 234, 239, 0.10);
+      --hover: rgba(156, 196, 244, 0.07);
+      --badge-bd: rgba(156, 196, 244, 0.32);
+      --badge-bg: rgba(156, 196, 244, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
 
     body {
       margin: 0;
       min-height: 100vh;
-      background:
-        linear-gradient(rgba(251, 251, 248, 0.96), rgba(251, 251, 248, 0.96)),
-        repeating-linear-gradient(
-          to right,
-          transparent 0,
-          transparent 95px,
-          rgba(24, 59, 99, 0.035) 95px,
-          rgba(24, 59, 99, 0.035) 96px
-        );
+      background: var(--paper);
       color: var(--ink);
       font-family: "STIX Two Text", Georgia, serif;
       font-size: 18px;
-      line-height: 1.65;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+      text-rendering: optimizeLegibility;
+      transition: background-color 0.25s ease, color 0.25s ease;
     }
 
     a {
@@ -82,131 +137,242 @@
     }
 
     a:hover {
-      color: #164a96;
+      color: var(--link-hover);
       text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 2px;
+      border-radius: 2px;
     }
 
     .page {
-      width: min(920px, calc(100% - 2rem));
+      width: min(860px, calc(100% - 2.6rem));
       margin: 0 auto;
-      padding: 2.2rem 0 3rem;
+      padding: 3rem 0 3.5rem;
     }
 
+    /* ---------- Masthead ---------- */
     .masthead {
-      padding: 0 0 1.5rem;
-      border-bottom: 1px solid var(--rule);
+      position: relative;
+      padding: 0 0 1.6rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .masthead::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      height: 1px;
+      background: var(--rule);
+    }
+
+    .masthead::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -1px;
+      width: 64px;
+      height: 3px;
+      background: var(--accent);
+      z-index: 1;
+    }
+
+    .eyebrow {
+      margin: 0 0 0.55rem;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
     }
 
     .masthead h1 {
       margin: 0;
-      font-size: clamp(2.5rem, 5vw, 3.7rem);
+      font-size: clamp(2.6rem, 6vw, 3.8rem);
       font-weight: 600;
-      line-height: 1;
+      line-height: 1.02;
       letter-spacing: -0.02em;
     }
 
     .subtitle {
-      margin: 0.55rem 0 0;
+      margin: 0.5rem 0 0;
       font-family: "IBM Plex Sans", sans-serif;
-      font-size: 1.2rem;
+      font-size: 1.16rem;
+      font-weight: 500;
       color: var(--muted);
     }
 
     .intro {
-      margin: 1rem 0 0;
-      max-width: 42rem;
-      font-size: 1.26rem;
-      color: #29313a;
+      margin: 1.15rem 0 0;
+      max-width: 44rem;
+      font-size: 1.24rem;
+      color: var(--ink-soft);
     }
 
     .contact-lines {
-      margin: 1rem 0 0;
+      margin: 1.1rem 0 0;
       font-family: "IBM Plex Sans", sans-serif;
-      font-size: 1.12rem;
+      font-size: 1.04rem;
       color: var(--muted);
-      line-height: 1.9;
     }
 
     .quick-links {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.85rem 1.2rem;
-      margin-top: 0.9rem;
+      gap: 0.55rem 0.7rem;
+      margin-top: 1rem;
       font-family: "IBM Plex Sans", sans-serif;
-      font-size: 1.12rem;
+      font-size: 0.98rem;
     }
 
-    .content {
-      margin-top: 1.8rem;
+    .quick-links a,
+    .links-list a {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.32rem 0.8rem;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      color: var(--ink-soft);
+      transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
     }
+
+    .quick-links a:hover,
+    .links-list a:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+      background: var(--hover);
+      text-decoration: none;
+    }
+
+    /* ---------- Theme toggle ---------- */
+    .theme-toggle {
+      position: absolute;
+      top: 2px;
+      right: 0;
+      width: 2.4rem;
+      height: 2.4rem;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      border: 1px solid var(--rule);
+      border-radius: 999px;
+      background: var(--panel);
+      color: var(--muted);
+      font-size: 1.05rem;
+      line-height: 1;
+      cursor: pointer;
+      transition: border-color 0.15s ease, color 0.15s ease, background-color 0.15s ease;
+    }
+
+    .theme-toggle:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+
+    .theme-toggle::before { content: "\263E"; }                       /* moon */
+    :root[data-theme="dark"] .theme-toggle::before { content: "\2600"; } /* sun */
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme="light"]) .theme-toggle::before { content: "\2600"; }
+    }
+
+    /* ---------- Sections ---------- */
+    .content { counter-reset: sec; }
 
     .section {
-      margin-top: 1.8rem;
+      counter-increment: sec;
+      margin-top: 2.4rem;
     }
 
     .section h2 {
-      margin: 0 0 0.7rem;
-      padding-bottom: 0.45rem;
+      display: flex;
+      align-items: baseline;
+      gap: 0.55rem;
+      margin: 0 0 0.9rem;
+      padding-bottom: 0.5rem;
       border-bottom: 1px solid var(--rule);
       font-family: "IBM Plex Sans", sans-serif;
-      font-size: 1.34rem;
+      font-size: 1.02rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .section h2::before {
+      content: counter(sec, decimal-leading-zero);
+      font-size: 0.9rem;
       font-weight: 600;
       color: var(--accent);
+      font-variant-numeric: tabular-nums;
     }
 
-    .section p {
-      margin: 0.55rem 0 0;
+    .section > p {
+      margin: 0;
+      color: var(--ink-soft);
     }
 
-    .pub-group + .pub-group {
-      margin-top: 0.9rem;
-    }
+    /* ---------- Publications ---------- */
+    .pub-group + .pub-group { margin-top: 1.5rem; }
 
     .pub-group h3 {
-      margin: 0 0 0.35rem;
+      margin: 0 0 0.5rem;
       font-family: "IBM Plex Sans", sans-serif;
-      font-size: 0.98rem;
+      font-size: 0.76rem;
       font-weight: 600;
-      color: var(--accent);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
     }
 
     .pub-list {
       display: grid;
-      gap: 0.1rem;
+      gap: 0.15rem;
     }
 
     .pub-item {
       display: grid;
-      grid-template-columns: 2rem 1fr;
-      gap: 0.45rem;
+      grid-template-columns: 2.1rem 1fr;
+      gap: 0.6rem;
       align-items: start;
-      padding: 0.22rem 0;
-      border-top: 1px solid rgba(26, 31, 38, 0.08);
+      padding: 0.5rem 0.6rem 0.5rem 0.2rem;
+      border-top: 1px solid var(--rule-soft);
+      border-radius: 8px;
+      transition: background-color 0.15s ease;
     }
+
+    .pub-item:first-child { border-top: 0; }
+    .pub-item:hover { background: var(--hover); }
 
     .pub-index {
       font-family: "IBM Plex Sans", sans-serif;
-      font-size: 0.86rem;
-      line-height: 1.45;
-      color: var(--muted);
+      font-size: 0.82rem;
+      font-weight: 500;
+      line-height: 1.5;
+      color: var(--accent);
+      font-variant-numeric: tabular-nums;
     }
 
-    .pub-main {
-      min-width: 0;
-    }
+    .pub-main { min-width: 0; }
 
     .pub-text {
       margin: 0;
-      color: #20262e;
+      color: var(--ink-soft);
       font-family: "IBM Plex Sans", sans-serif;
-      font-size: 0.96rem;
-      line-height: 1.42;
+      font-size: 0.98rem;
+      line-height: 1.5;
       word-break: break-word;
     }
 
-    .pub-title {
-      font-weight: 500;
-    }
+    .pub-title { font-weight: 600; color: var(--ink); }
+    a.pub-title { color: var(--link); }
+    a.pub-title:hover { color: var(--link-hover); }
 
     .pub-venue {
       color: var(--muted);
@@ -215,103 +381,157 @@
 
     .pub-status {
       display: inline-block;
-      padding: 0 0.34rem;
-      border: 1px solid rgba(23, 58, 97, 0.18);
+      margin-left: 0.1rem;
+      padding: 0.05rem 0.45rem;
+      border: 1px solid var(--badge-bd);
+      border-radius: 999px;
+      background: var(--badge-bg);
       color: var(--accent);
-      background: transparent;
       font-family: "IBM Plex Sans", sans-serif;
-      font-size: 0.8rem;
-      line-height: 1.35;
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      vertical-align: middle;
     }
 
-    .pub-abstract {
-      margin: 0.12rem 0 0;
-      padding-left: 0.55rem;
-      border-left: 2px solid rgba(23, 58, 97, 0.15);
-    }
+    .pub-abstract { margin: 0.4rem 0 0; }
 
     .pub-abstract summary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3rem;
+      width: max-content;
       cursor: pointer;
+      list-style: none;
       font-family: "IBM Plex Sans", sans-serif;
-      font-size: 0.84rem;
-      font-weight: 500;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--accent);
     }
+
+    .pub-abstract summary::-webkit-details-marker { display: none; }
+
+    .pub-abstract summary::before {
+      content: "+";
+      display: inline-block;
+      width: 0.85rem;
+      font-weight: 600;
+    }
+
+    .pub-abstract[open] summary::before { content: "\2013"; } /* en dash */
 
     .pub-abstract blockquote {
-      margin: 0.35rem 0 0;
-      padding: 0;
-      border: 0;
-      color: var(--muted);
-      font-size: 0.92rem;
-      line-height: 1.45;
-    }
-
-    .links-list {
-      margin: 0;
-      padding-left: 1.15rem;
-    }
-
-    .links-list li {
-      margin: 0.2rem 0;
-    }
-
-    .collab-list {
       margin: 0.45rem 0 0;
+      padding: 0 0 0 0.85rem;
+      border-left: 2px solid var(--rule);
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.55;
     }
 
-    .collab-name {
-      color: #20262e;
+    /* ---------- Coauthors ---------- */
+    .collab-list {
+      margin: 0;
+      line-height: 2.05;
+      font-size: 1.02rem;
     }
+
+    .collab-name { color: var(--ink-soft); }
 
     .collab-count {
-      color: var(--muted);
+      color: var(--faint);
       font-family: "IBM Plex Sans", sans-serif;
-      font-size: 0.92rem;
+      font-size: 0.82rem;
     }
 
-    .collab-empty {
+    .collab-empty { color: var(--muted); }
+
+    /* ---------- Links ---------- */
+    .links-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem 0.7rem;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 0.98rem;
+    }
+
+    /* ---------- Footer ---------- */
+    .site-footer {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      gap: 0.5rem 1rem;
+      margin-top: 3rem;
+      padding-top: 1.1rem;
+      border-top: 1px solid var(--rule);
+      font-family: "IBM Plex Sans", sans-serif;
+      font-size: 0.86rem;
       color: var(--muted);
     }
 
+    .footer-links {
+      display: inline-flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+    }
+
+    /* ---------- Responsive ---------- */
     @media (max-width: 760px) {
+      body { font-size: 17px; }
+
       .page {
-        width: min(100% - 1rem, 920px);
+        width: min(100% - 1.4rem, 860px);
+        padding: 2.2rem 0 2.6rem;
       }
 
       .pub-item {
         grid-template-columns: 1fr;
-        gap: 0.35rem;
+        gap: 0.2rem;
+        padding: 0.55rem 0.2rem;
       }
 
+      .pub-index { font-size: 0.78rem; }
+      .theme-toggle { top: 0; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      * {
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
     }
   </style>
 </head>
 <body>
-  <main class="page">
+  <main class="page" id="top">
     <header class="masthead">
-      <div>
-        <h1>Yuhang Bai</h1>
-        <p class="subtitle">PhD Candidate, Northwestern Polytechnical University</p>
-        <p class="intro">
-          I work in graph theory and theoretical computer science, with interests in
-          approximation algorithms and random graph theory. My advisor is Professor
-          Shenggui Zhang. From 2024 to 2026, I visited the <a href="https://berkri.web.elte.hu/memmorg/index.php/category/news/">MTA-ELTE Matroid Optimization
-          Research Group</a>, hosted by <a href="https://berkri.web.elte.hu/">Kristóf Bérczi</a>.
-        </p>
-        <div class="contact-lines">
-          Email: <a href="mailto:yuhang.bai66@gmail.com">yuhang.bai66@gmail.com</a>
-        </div>
-        <div class="quick-links">
-          <a href="https://scholar.google.com.hk/citations?user=rznH-g4AAAAJ&hl=zh-CN">Google Scholar</a>
-          <a href="#publications">Publications</a>
-        </div>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle color theme" title="Switch theme"></button>
+      <p class="eyebrow">Graph Theory &middot; Theoretical Computer Science</p>
+      <h1>Yuhang Bai</h1>
+      <p class="subtitle">PhD Candidate &middot; Northwestern Polytechnical University</p>
+      <p class="intro">
+        I work in graph theory and theoretical computer science, with interests in
+        approximation algorithms, matroid theory, and random graph theory. My advisor is Professor
+        Shenggui Zhang. From 2024 to 2026, I visited the <a href="https://berkri.web.elte.hu/memmorg/index.php/category/news/">MTA-ELTE Matroid Optimization
+        Research Group</a>, hosted by <a href="https://berkri.web.elte.hu/">Kristóf Bérczi</a>.
+      </p>
+      <div class="contact-lines">
+        Email: <a href="mailto:yuhang.bai66@gmail.com">yuhang.bai66@gmail.com</a>
       </div>
+      <nav class="quick-links" aria-label="Profile links">
+        <a href="https://scholar.google.com.hk/citations?user=rznH-g4AAAAJ&hl=zh-CN">Google Scholar</a>
+        <a href="#publications">Publications</a>
+      </nav>
     </header>
 
     <div class="content">
       <section class="section">
         <h2>Research Interests</h2>
-        <p>Approximation Algorithms, Random Graph Theory.</p>
+        <p>Approximation Algorithms, Matroid Theory, Random Graph Theory.</p>
       </section>
 
       <section class="section">
@@ -323,7 +543,6 @@
 
       <section class="section" id="publications">
         <h2>Publications</h2>
-
         <!-- PUBS_START -->
 <section class="pub-group">
   <h3>Preprint</h3>
@@ -443,13 +662,6 @@
 <!-- PUBS_END -->
       </section>
 
-      <section class="section" hidden>
-        <h2>Coauthors</h2>
-        <!-- OLD_COLLAB_START UNUSED -->
-<p class="collab-list"><span class="collab-entry"><span class="collab-name">Gergely Csáji</span> <span class="collab-count">(3)</span></span>; <span class="collab-entry"><span class="collab-name">Gyula O.H. Katona</span> <span class="collab-count">(2)</span></span>; <span class="collab-entry"><span class="collab-name">Hajo Broersma</span> <span class="collab-count">(1)</span></span>; <span class="collab-entry"><span class="collab-name">Jianhua Tu</span> <span class="collab-count">(1)</span></span>; <span class="collab-entry"><span class="collab-name">Johanna K. Siemelink</span> <span class="collab-count">(2)</span></span>; <span class="collab-entry"><span class="collab-name">Junpeng Zhou</span> <span class="collab-count">(3)</span></span>; <span class="collab-entry"><span class="collab-name">Kristóf Bérczi</span> <span class="collab-count">(5)</span></span>; <span class="collab-entry"><span class="collab-name">Shenggui Zhang</span> <span class="collab-count">(4)</span></span>; <span class="collab-entry"><span class="collab-name">Tamás Schwarcz</span> <span class="collab-count">(3)</span></span>; <span class="collab-entry"><span class="collab-name">Xiamiao Zhao</span> <span class="collab-count">(3)</span></span>; <span class="collab-entry"><span class="collab-name">Yandong Bai</span> <span class="collab-count">(2)</span></span>; <span class="collab-entry"><span class="collab-name">Yanni Dong</span> <span class="collab-count">(1)</span></span>; <span class="collab-entry"><span class="collab-name">Yichen Wang</span> <span class="collab-count">(3)</span></span>; <span class="collab-entry"><span class="collab-name">Zhiwei Guo</span> <span class="collab-count">(1)</span></span>; <span class="collab-entry"><span class="collab-name">Zixuan Yang</span> <span class="collab-count">(5)</span></span>.</p>
-<!-- OLD_COLLAB_END -->
-      </section>
-
       <section class="section">
         <h2>Links</h2>
         <ul class="links-list">
@@ -457,7 +669,45 @@
         </ul>
       </section>
     </div>
+
+    <footer class="site-footer">
+      <span>Yuhang Bai</span>
+      <span class="footer-links">
+        <a href="mailto:yuhang.bai66@gmail.com">Email</a>
+        <a href="https://scholar.google.com.hk/citations?user=rznH-g4AAAAJ&hl=zh-CN">Scholar</a>
+        <a href="#top">&uarr; Top</a>
+      </span>
+    </footer>
   </main>
+
+  <script>
+    /* Dark/light toggle with persistence. */
+    (function () {
+      var btn = document.getElementById("theme-toggle");
+      if (!btn) return;
+
+      function current() {
+        var t = document.documentElement.getAttribute("data-theme");
+        if (t) return t;
+        return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      }
+
+      function syncButton(t) {
+        btn.setAttribute("aria-pressed", String(t === "dark"));
+        btn.title = t === "dark" ? "Switch to light theme" : "Switch to dark theme";
+      }
+
+      // On load, only reflect the current theme — don't persist, so visitors
+      // with no explicit choice keep following their system preference.
+      syncButton(current());
+
+      btn.addEventListener("click", function () {
+        var next = current() === "dark" ? "light" : "dark";
+        document.documentElement.setAttribute("data-theme", next);
+        try { localStorage.setItem("theme", next); } catch (e) {}
+        syncButton(next);
+      });
+    })();
+  </script>
 </body>
 </html>
-
