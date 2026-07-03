@@ -5,29 +5,6 @@ import unicodedata
 BIB_FILE = "publications.bib"
 INDEX_FILE = "index.html"
 TARGET_AUTHOR = "Yuhang Bai"
-TITLE_STOPWORDS = {
-    "a",
-    "an",
-    "and",
-    "by",
-    "for",
-    "from",
-    "in",
-    "of",
-    "on",
-    "the",
-    "to",
-    "type",
-    "types",
-    "using",
-    "via",
-    "with",
-    "without",
-    "number",
-    "numbers",
-    "problem",
-    "problems",
-}
 
 
 def split_entries(text):
@@ -199,26 +176,9 @@ def surname_sort_key(name):
     return surname, given_names
 
 
-def normalize_title_token(token):
-    if len(token) > 4 and token.endswith("ies"):
-        return token[:-3] + "y"
-    if len(token) > 3 and token.endswith("s") and not token.endswith("ss"):
-        return token[:-1]
-    return token
-
-
 def title_key(title):
     cleaned = fold_text(normalize_spaces(strip_braces(title))).replace("-", " ")
-    tokens = []
-    for token in re.findall(r"[a-z0-9]+", cleaned):
-        if token in TITLE_STOPWORDS:
-            continue
-        tokens.append(normalize_title_token(token))
-
-    unique_tokens = sorted(dict.fromkeys(tokens))
-    if unique_tokens:
-        return tuple(unique_tokens)
-    return (cleaned,)
+    return normalize_spaces(cleaned)
 
 
 def work_key(entry):
